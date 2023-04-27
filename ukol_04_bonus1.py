@@ -1,19 +1,22 @@
 def sendMessage():
-    if len(cell_number) == 9:
-        message = input("Zadej zprávu: ")
-    elif len(cell_number) == 13:
-        message = input("Zadej zprávu: ")
-    else:
+    if " " in cell_number:
         oprava = cell_number.replace(" ", "")
         print(f'Zadal jsi číslo s mezerou. Zpráva bude zaslána na opravené číslo: {oprava}')
         message = input("Zadej zprávu: ")
-
-    return message, oprava
+    else:
+        if len(cell_number) == 9:
+            message = input("Zadej zprávu: ")
+        elif len(cell_number) == 13:
+            message = input("Zadej zprávu: ")
+        else:
+            print("Zadal jsi chybné číslo.")
+            exit()
+    return message
     
     
 cell_number = input("Zadej telefonní číslo: ")
 message = sendMessage()
-print(len(message))
+print(f'Počet znaků ve zprávě je {len(message)}.')
 
 def payMessage():
     price_per_180_characters = 3
