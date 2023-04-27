@@ -1,4 +1,4 @@
-def sendMessage():
+def sendMessage(cell_number : str) -> str:
     if " " in cell_number:
         oprava = cell_number.replace(" ", "")
         print(f'Zadal jsi číslo s mezerou. Zpráva bude zaslána na opravené číslo: {oprava}')
@@ -15,7 +15,7 @@ def sendMessage():
     
     
 cell_number = input("Zadej telefonní číslo: ")
-message = sendMessage()
+message = sendMessage(cell_number)
 print(f'Počet znaků ve zprávě je {len(message)}.')
 
 def payMessage():
